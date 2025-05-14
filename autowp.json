@@ -1,0 +1,19 @@
+{
+    "name" : "Auto WP Plugin",
+    "slug" : "autowp",
+    "homepage" : "https://PopinaDev.com",
+    "download_url" : "https://github.com/PopinaDev/Wordpress-Aut",
+    
+    "version" : "1.0.2",
+    "upgrade_notice" : "Upgrade to the most recent version for new features and more...",
+    
+    "author" : "PopinaDev",
+    "author_homepage" : "https://PopinaDev.com",
+    
+    "sections" : {
+        "description" : "Automatic Wordpress Posts from Various sources to WordPress on complete auto-pilot.",
+        "installation" : "Click Add New under Plugins tab and upload the plugin .zip file",
+        "changelog" : "Check item home page link on the right to see change log " 
+         
+    }    
+}
