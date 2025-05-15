@@ -2,34 +2,26 @@
 header('Content-Type: application/json');
 header('Access-Control-Allow-Origin: *');
 
-// Get parameters from either GET or POST
-$license = isset($_REQUEST['license']) ? trim($_REQUEST['license']) : '';
-$domain = isset($_REQUEST['domain']) ? trim($_REQUEST['domain']) : '';
+// Get parameters
+$license = isset($_GET['license']) ? trim($_GET['license']) : '';
+$domain = isset($_GET['domain']) ? trim($_GET['domain']) : '';
 
-// Valid license configuration
-$valid_licenses = array(
-    array(
-        'key' => 'PXLS-2025-AWPP-1234',
-        'domain' => 'pixlistream.store',
-        'expires' => '2026-05-15'
-    )
+// Log request for debugging
+error_log("License check request - License: $license, Domain: $domain");
+
+// Hardcoded valid license
+$valid_license = array(
+    'key' => 'PXLS-2025-AWPP-1234',
+    'domain' => 'pixlistream.store'
 );
 
-// Check license
-$is_valid = false;
-foreach ($valid_licenses as $license_data) {
-    if ($license_data['key'] === $license) {
-        $is_valid = true;
-        break;
-    }
-}
-
-if ($is_valid) {
+// Simple validation
+if ($license === $valid_license['key']) {
     echo json_encode(array(
         'message' => 'License validated successfully'
     ));
 } else {
     echo json_encode(array(
-        'error' => 'Invalid license'
+        'error' => 'Invalid license key'
     ));
 }
